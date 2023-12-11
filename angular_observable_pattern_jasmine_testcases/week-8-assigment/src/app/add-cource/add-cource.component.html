@@ -1,0 +1,49 @@
+
+<div class="container mt-5 shadow-sm p-5 mb-5 bg-body-tertiary rounded border">  
+
+   
+   <form>
+    <h4 style="align-items: center;text-align: center;">ADD COURSES TO CURRICULUM</h4>
+
+      <button type="button" class="btn btn-secondary button-spacing " style="margin-left: 200px;"(click)="fetchEveryCourse()">
+        SHOW ALL
+       </button>
+      <button type="button" class="btn btn-secondary button-spacing" (click)="addOptionToggle()">
+       ADD
+      </button>
+      <button type="button" class="btn btn-secondary button-spacing" (click)="updateOptionToggle()">
+       UPDATE
+      </button>
+      <button type="button" class="btn btn-secondary button-spacing" (click)="deleteOptionToggle()">
+        DELETE
+      </button>
+      <button type="button" class="btn btn-secondary button-spacing" (click)="getOptionToggle()">
+        GET
+      </button>
+      <div class="form-group col-md-16">
+        <label  for="name">course Id:</label>
+        <input type="text" name= 'id' class="form-control" id="courseid" placeholder="Enter course ID" [(ngModel)]="courseId">
+      </div>
+
+      <div class="form-group col-md-16" *ngIf="!deleteOptionSelected">
+        <label for="name">course Name:</label>
+        <input type="text" name= 'name' class="form-control" id="coursename" placeholder="Enter course name" [(ngModel)]="courseName">
+      </div>
+  
+      
+      <button type="submit" [hidden]="!showAddButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;AddCourseInformation()">Add course</button>
+      <button type="submit"[hidden]="!showUpdateButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;UpdateCourseInformation()">update course</button>
+      <button type="submit"[hidden]="!showDeleteButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;DeleteCourseInformation()">Delete course</button>
+      <button type="submit"[hidden]="!showGetButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;GetCourseInformation()">GET course</button>
+
+
+      <!-- <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;AddCourseInformation()">Add course</button>
+      <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;UpdateCourseInformation()">update course</button>
+      <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;DeleteCourseInformation()">Delete course</button>
+      <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;GetCourseInformation()">Get course</button> -->
+
+    </form>   
+
+<app-show-course></app-show-course>
+</div>
+

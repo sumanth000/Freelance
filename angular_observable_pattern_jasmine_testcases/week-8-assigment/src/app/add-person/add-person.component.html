@@ -1,0 +1,71 @@
+
+<div class="container mt-5 shadow-sm p-5 mb-5 bg-body-tertiary rounded border">  
+  
+  
+    <h4 style="align-items: center;text-align: center;">PERSONAL INFORMATION FORM</h4>
+    <form>
+      <!-- <button type="button" class="button btn-secondary" (click)="addressToggle()">
+        Show/Hide address
+      </button> -->
+      <button type="button" class="btn btn-secondary button-spacing "style="margin-left: 200px;" (click)="fetchEverything()">
+        SHOW ALL
+       </button>
+      <button  type="button" class="btn btn-secondary button-spacing " (click)="addOptionToggle()">
+       ADD
+      </button>
+      <button type="button"  class="btn btn-secondary button-spacing " (click)="updateOptionToggle()">
+       UPDATE
+      </button>
+      <button type="button" class="btn btn-secondary button-spacing " (click)="deleteOptionToggle()">
+        DELETE
+      </button>
+      <button type="button" class="btn btn-secondary button-spacing " (click)="getOptionToggle()">
+        GET
+      </button>
+      <div class="form-group col-md-16">
+        <label  for="name">Id:</label>
+        <input type="text" name= 'id' class="form-control" id="id" placeholder="Enter your ID" [(ngModel)]="Id">
+      </div>
+
+      <div class="form-group col-md-16" *ngIf="!deleteOptionSelected">
+        <label for="name">Name:</label>
+        <input type="text" name= 'name' class="form-control" id="name" placeholder="Enter your name" [(ngModel)]="Name">
+      </div>
+  
+      <!-- <div class="form-group col-md-16" *ngIf="!deleteOptionSelected">
+        <label for="address">courseName:</label>
+        <input type="text" name= 'address' class="form-control" id="courseName" placeholder="Enter your couse name" [(ngModel)]="courseName">
+      </div> -->
+
+      <div class="form-group col-md-16" *ngIf="!deleteOptionSelected">
+        <label for="address">courseName:</label><br>
+
+        <select id="dropdown" name="courseName"class="custom-dropdown" [(ngModel)]="courseName">
+          <option *ngFor="let value of dropdownCourses" [value]="value">{{ value }}</option>
+        </select>
+      </div>
+
+      
+  
+      <div class="form-row" *ngIf="!deleteOptionSelected">
+        <div class="form-group col-md-16">
+          <label>major:</label>
+          <input type="text" name= 'city' class="form-control" id="major" placeholder="Enter your major" [(ngModel)]="major">
+        </div>
+        
+      </div>
+      <button type="submit" [hidden]="!showAddButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;AddPersonInformation()">Add Person</button>
+      <button type="submit"[hidden]="!showUpdateButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;UpdatePersonInformation()">update Person</button>
+      <button type="submit"[hidden]="!showDeleteButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;DeletePersonInformation()">Delete Person</button>
+      <button type="submit"[hidden]="!showGetButton" class="btn btn-primary mt-2" (click)="$event.preventDefault;GetPersonInformation()">GET Person</button>
+
+
+      <!-- <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;AddPersonInformation()">Add Person</button>
+      <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;UpdatePersonInformation()">update Person</button>
+      <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;DeletePersonInformation()">Delete Person</button>
+      <button type="submit" class="btn btn-primary mt-2" (click)="$event.preventDefault;GetPersonInformation()">Get Person</button> -->
+
+    </form>   
+
+
+    <app-show-persons></app-show-persons>

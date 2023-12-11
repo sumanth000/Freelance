@@ -1,0 +1,43 @@
+<div class="container">
+<div *ngIf="receivedFormData!=null && receivedFormData.Length==0;then  NoDataTodisplay else DisplayData"></div>
+<ng-template #DisplayData>    
+      <h5 style="align-items: center;text-align: center;">LIST OF FETCHING DATA</h5>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>courseName</th>
+            <th>major</th>
+            
+          </tr>
+        </thead>
+        <tbody>              
+          <tr *ngFor="let personinformations of receivedFormData">  
+            <td>{{personinformations.Id}}</td>
+            <td>{{personinformations.Name}}</td>
+            <td>{{personinformations.courseName}}</td>
+            <td>{{personinformations.major}}</td>
+           
+          </tr>                      
+        </tbody>     
+     </table>     
+</ng-template>
+<ng-template #NoDataTodisplay>
+  <h2>List of Entered Data</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>courseName</th>
+        <th>major</th>
+        
+      </tr>
+    </thead>
+    <tbody> 
+       <tr>No  Data to display</tr>
+    </tbody>
+    </table>
+</ng-template> 
+</div>
